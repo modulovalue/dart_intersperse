@@ -1,0 +1,13 @@
+language: dart
+
+dart:
+  - dev
+  - stable
+dart_task:
+  - dartfmt
+  - test
+  - dartanalyzer: --fatal-warnings lib
+
+after_success:
+  - pub run test_coverage
+  - bash <(curl -s https://codecov.io/bash)
