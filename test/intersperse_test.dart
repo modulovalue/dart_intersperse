@@ -21,6 +21,11 @@ void main() {
         <int>[1, -1, 2, -1, 3],
       );
     });
+    test("is lazy", () {
+      final Iterable<int> sut =
+          intersperse(-1, List.generate(1000000, (a) => a));
+      expect(0, sut.first);
+    });
   });
 
   group("intersperseOuter", () {
@@ -36,6 +41,11 @@ void main() {
     test("3", () {
       expect(
           intersperseOuter(-1, <int>[1, 2, 3]), <int>[-1, 1, -1, 2, -1, 3, -1]);
+    });
+    test("is lazy", () {
+      final Iterable<int> sut =
+          intersperseOuter(-1, List.generate(1000000, (a) => a));
+      expect(-1, sut.first);
     });
   });
 }

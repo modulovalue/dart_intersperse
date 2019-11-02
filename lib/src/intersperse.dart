@@ -6,16 +6,15 @@
 ///     final list2 = intersperse(2, [0]); // [0];
 ///     final list3 = intersperse(2, [0, 0]); // [0, 2, 0];
 ///
-Iterable<T> intersperse<T>(T element, Iterable<T> list) {
-  if (list.isEmpty) {
-    return [];
+Iterable<T> intersperse<T>(T element, Iterable<T> iterable) sync* {
+  final iterator = iterable.iterator;
+  if (iterator.moveNext()) {
+    yield iterator.current;
+    while (iterator.moveNext()) {
+      yield element;
+      yield iterator.current;
+    }
   }
-  final List<T> a = list.fold(<T>[], (Iterable<T> prev, cur) {
-    return <T>[...prev, element, cur];
-  })
-    ..removeAt(0);
-
-  return a;
 }
 
 /// Puts [element] between every element in [list] and at the bounds of [list].
@@ -26,14 +25,13 @@ Iterable<T> intersperse<T>(T element, Iterable<T> list) {
 ///     final list2 = intersperseOuter(2, [0]); // [2, 0, 2];
 ///     final list3 = intersperseOuter(2, [0, 0]); // [2, 0, 2, 0, 2];
 ///
-Iterable<T> intersperseOuter<T>(T element, Iterable<T> list) {
-  if (list.isEmpty) {
-    return [];
+Iterable<T> intersperseOuter<T>(T element, Iterable<T> iterable) sync* {
+  final iterator = iterable.iterator;
+  if (iterable.isNotEmpty) {
+    yield element;
   }
-  final a =
-      list.fold(<T>[], (Iterable<T> prev, cur) => <T>[...prev, element, cur]);
-  return [
-    ...a,
-    element,
-  ];
+  while (iterator.moveNext()) {
+    yield iterator.current;
+    yield element;
+  }
 }
