@@ -1,6 +1,6 @@
 name: intersperse
 description: Insert an element between each element of an Iterable or List.
-version: 1.0.0+2
+version: 1.0.0+3
 homepage: https://www.github.com/modulovalue/dart_intersperse
 author: Modestas Valauskas <valauskasmodestas+dartpub@gmail.com>
 

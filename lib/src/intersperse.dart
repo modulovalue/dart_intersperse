@@ -15,9 +15,7 @@ Iterable<T> intersperse<T>(T element, Iterable<T> list) {
   })
     ..removeAt(0);
 
-  return [
-    ...a,
-  ];
+  return a;
 }
 
 /// Puts [element] between every element in [list] and at the bounds of [list].
