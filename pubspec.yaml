@@ -5,7 +5,7 @@ homepage: https://www.github.com/modulovalue/dart_intersperse
 author: Modestas Valauskas <valauskasmodestas+dartpub@gmail.com>
 
 environment:
-  sdk: '>=2.4.4 <3.0.0'
+  sdk: ">=2.6.0 <3.0.0"
 
 dev_dependencies:
   extra_pedantic: ^1.1.1
