@@ -1,3 +1,7 @@
+## 1.1.1
+
+- Extensions added @dumazy
+
 ## 1.0.1+1
 
 - readme update
