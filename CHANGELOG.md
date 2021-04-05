@@ -1,3 +1,7 @@
+## 2.0.0
+
+- Null-safety support @dumazy
+
 ## 1.1.1
 
 - Extensions added @dumazy
