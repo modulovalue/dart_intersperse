@@ -8,9 +8,10 @@ extension IntersperseExtensions<T> on Iterable<T> {
   ///     final list1 = <int>[].intersperse(2); // [];
   ///     final list2 = [0].intersperse(2); // [0];
   ///     final list3 = [0, 0].intersperse(2); // [0, 2, 0];
+  ///     final list4 = [0, 0, 0, 0, 0, 0].intersperse(2, interval: 2); // [0, 0, 2, 0, 0, 2, 0, 0];
   ///
-  Iterable<T> intersperse(T element) {
-    return core.intersperse(element, this);
+  Iterable<T> intersperse(T element, {int interval = 1}) {
+    return core.intersperse(element, this, interval: interval);
   }
 
   /// Puts [element] between every element in [list] and at the bounds of [list].

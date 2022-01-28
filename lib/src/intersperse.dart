@@ -5,14 +5,17 @@
 ///     final list1 = intersperse(2, <int>[]); // [];
 ///     final list2 = intersperse(2, [0]); // [0];
 ///     final list3 = intersperse(2, [0, 0]); // [0, 2, 0];
+///     final list4 = intersperse(2, [0, 0, 0, 0, 0, 0], interval: 2); // [0, 0, 2, 0, 0, 2, 0, 0];
 ///
-Iterable<T> intersperse<T>(T element, Iterable<T> iterable) sync* {
+Iterable<T> intersperse<T>(T element, Iterable<T> iterable, {int interval = 1}) sync* {
   final iterator = iterable.iterator;
   if (iterator.moveNext()) {
     yield iterator.current;
+    int x = 1;
     while (iterator.moveNext()) {
-      yield element;
+      if (x % interval == 0) yield element;
       yield iterator.current;
+      x++;
     }
   }
 }
